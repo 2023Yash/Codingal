@@ -8,8 +8,8 @@ def find_substrings(input_string):
     
     return substrings
 
-user_input = input("Enter a string: ")
-result = find_substrings(user_input)
+inp = input("Enter a string: ")
+result = find_substrings(inp)
 
 print("All substrings are:")
 for substring in result:
