@@ -79,8 +79,6 @@ for i in range(0, len(email)):
     elif (Letters_List[email[i]] == "number"):
         numbers += 1
 
-
-
 print(f"Total Length = {Total_Length}")
 print(f"vowels = {vowels}")
 print(f"consonsnts = {consonants}")
