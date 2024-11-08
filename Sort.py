@@ -1,154 +1,89 @@
-import pygame
- 
-pygame.init()
- 
-# setting window size
-win = pygame.display.set_mode((500, 400))
- 
-# setting title to the window
-pygame.display.set_caption("Bubble sort")
- 
-# initial position
-x = 40
-y = 40
- 
-# width of each bar
-width = 20
- 
-# height of each bar (data to be sorted)
-height = [200, 50, 130, 90, 250, 61, 110,
-            88, 33, 80, 70, 159, 180, 20]
- 
-run = True
- 
-# method to show the list of height
-def show(height):
- 
-    # loop to iterate each item of list
-    for i in range(len(height)):
- 
-        # drawing each bar with respective gap
-        pygame.draw.rect(win, (255, 0, 0), (x + 30 * i, y, width, height[i]))
- 
-# infinite loop
-while run:
- 
-    # execute flag to start sorting
-    execute = False
- 
-    # time delay
-    pygame.time.delay(10)
- 
-    # getting keys pressed
-    keys = pygame.key.get_pressed()
- 
-    # iterating events
-    for event in pygame.event.get():
- 
-        # if event is to quit
-        if event.type == pygame.QUIT:
- 
-            # making run = false so break the while loop
-            run = False
- 
-    # if space bar is pressed
-    if keys[pygame.K_SPACE]:
-        # make execute flag to true
-        execute = True
- 
-    # checking if execute flag is false
-    if execute == False:
- 
-        # fill the window with black color
-        win.fill((0, 0, 0))
- 
-        # call the height method to show the list items
-        show(height)
- 
-        # update the window
-        pygame.display.update()
- 
-    # if execute flag is true
-    else:
- 
-        # start sorting using bubble sort technique
-        for i in range(len(height) - 1):
- 
-            # after this iteration max element will come at last
-            for j in range(len(height) - i - 1):
- 
-                # starting is greater than next element
-                if height[j] > height[j + 1]:
- 
-                    # save it in temporary variable
-                    # and swap them using temporary variable
-                    t = height[j]
-                    height[j] = height[j + 1]
-                    height[j + 1] = t
- 
-                # fill the window with black color
-                win.fill((0, 0, 0))
- 
-                # call show method to display the list items
-                show(height)
- 
-                # create a time delay
-                pygame.time.delay(50)
- 
-                # update the display
-                pygame.display.update()
- 
-# exiting the main window
-pygame.quit()
+import random
 
-# import random
+def is_sorted(arr):
+    arr_len = len(arr)
 
-# def is_sorted(arr):
-#     arr_len = len(arr)
+    for i in range(0, arr_len - 1):
+        if (arr[i] > arr[i + 1]):
+            return False
+            break
 
-#     for i in range(0, arr_len - 1):
-#         if (arr[i] > arr[i + 1]):
-#             return False
-#             break
+# Different sorting algs
 
-# # Different sorting algs
+def bubble_sort(arr):
+    arr_len = len(arr)
 
-# def bubble_sort(arr):
-#     arr_len = len(arr)
-
-#     while (is_sorted(arr) == False):
-#         for i in range(0, arr_len - 1):
-#             if (arr[i] > arr[i + 1]):
-#                 arr[i], arr[i + 1] = arr[i + 1], arr[i]
+    while (is_sorted(arr) == False):
+        for i in range(0, arr_len - 1):
+            if (arr[i] > arr[i + 1]):
+                arr[i], arr[i + 1] = arr[i + 1], arr[i]
     
-#     print(arr)
-#     return arr
+    print(arr)
+    return arr
 
-# def bogo_sort(arr):
-#     arr_len = len(arr)
+def bogo_sort(arr):
+    arr_len = len(arr)
 
-#     while (is_sorted(arr) == False):
-#         for i in range(0, arr_len - 1):
-#             random_num = random.randint(0, arr_len - 1)
-#             arr[i], arr[random_num] = arr[random_num], arr[i]
+    while (is_sorted(arr) == False):
+        for i in range(0, arr_len - 1):
+            random_num = random.randint(0, arr_len - 1)
+            arr[i], arr[random_num] = arr[random_num], arr[i]
 
-#     print(arr)
-#     return arr
+    print(arr)
+    return arr
 
-# def insertion_sort(arr):
-#     arr_len = len(arr)
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
 
-#     while (is_sorted(arr) == False):
-#         for i in range(0, arr_len -1):
-#             if (arr[i] > arr[i + 1]):
-#                 arr[i], arr[i + 1] = arr[i + 1], arr[i]
-#                 i = 0
-
-#     print(arr)
-#     return arr
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
 
 
-# arr = [3, 6, 4, 2, 8, 5, 1]
-# # bubble_sort(arr)
-# # bogo_sort(arr)
-# insertion_sort(arr)
+    print(arr)
+    return arr
+
+def printer():
+    arr = list()
+
+    arr_length = int(input("Enter array length:"))
+    print()
+
+    for i in range(arr_length):
+        item_inp = int(input(f"Enter array item no. {i}:"))
+        arr.append(item_inp)
+    
+    print()
+
+    print("Press 1 for bubble sort,")
+    print("Press 2 for bogo sort,")
+    print("Press 3 for insert sort,")
+
+    print()
+
+    inp = int(input(":"))
+
+    if (inp == 1):
+        print(f"Sorted array is {bubble_sort(arr)}.")
+        print()
+        print()
+        print()
+    
+    if (inp == 2):
+        print(f"Sorted array is {bogo_sort(arr)}.")
+        print()
+        print()
+        print()
+
+    if (inp == 3):
+        print(f"Sorted array is {insertion_sort(arr)}.")
+        print()
+        print()
+        print()
+
+    return printer()
+
+printer()
