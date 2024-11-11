@@ -6,7 +6,6 @@ def is_sorted(arr):
     for i in range(0, arr_len - 1):
         if (arr[i] > arr[i + 1]):
             return False
-            break
 
 # Different sorting algs
 
