@@ -45,6 +45,18 @@ def insertion_sort(arr):
     print(arr)
     return arr
 
+def selection_sort(arr):
+    arr_len = len(arr)
+
+    for i in range(arr_len):
+        I = i
+        for j in range(i + 1, arr_len):
+            if(arr[I] > arr[j]):
+                I = j
+        arr[i], arr[I] = arr[I], arr[i]
+
+    return arr
+
 def printer():
     arr = list()
 
@@ -60,6 +72,7 @@ def printer():
     print("Press 1 for bubble sort,")
     print("Press 2 for bogo sort,")
     print("Press 3 for insert sort,")
+    print("Press 4 for selection sort,")
 
     print()
 
@@ -79,6 +92,12 @@ def printer():
 
     if (inp == 3):
         print(f"Sorted array is {insertion_sort(arr)}.")
+        print()
+        print()
+        print()
+
+    if (inp == 4):
+        print(f"Sorted array is {selection_sort(arr)}.")
         print()
         print()
         print()
