@@ -16,13 +16,14 @@ def Sort(arr):
         if (previous > arr[i]):
             if (x == -1):
                 x = i - 1
-
-            y = i
+                y = i
+            else:
+                y = i
         previous = arr[i]
 
     Swap(arr, x, y)
 
-arr = [1, 10, 5, 1, 2, 5, 7, 7, 9, 1]
+arr = [3, 5, 6, 9, 8, 7]
 
 Sort(arr)
 
