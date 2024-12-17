@@ -41,7 +41,6 @@ def insertion_sort(arr):
             j -= 1
         arr[j + 1] = key
 
-
     print(arr)
     return arr
 
@@ -55,7 +54,27 @@ def selection_sort(arr):
                 I = j
         arr[i], arr[I] = arr[I], arr[i]
 
+    print(arr)
     return arr
+
+def shell_sort(arr):
+    arr_len = len(arr)
+
+    interval = arr_len // 2
+    while(interval > 0):
+        for i in range(interval, arr_len):
+            temp = arr[i]
+            j = i
+            while j >= interval and arr[j - interval] > temp:
+                arr[j] = arr[j - interval]
+                j -= interval
+            arr[j] = temp
+        interval //= 2
+
+    print(arr)
+    return arr
+
+
 
 def printer():
     arr = list()
@@ -73,6 +92,7 @@ def printer():
     print("Press 2 for bogo sort,")
     print("Press 3 for insert sort,")
     print("Press 4 for selection sort,")
+    print("Press 5 for shell sort,")
 
     print()
 
@@ -98,6 +118,12 @@ def printer():
 
     if (inp == 4):
         print(f"Sorted array is {selection_sort(arr)}.")
+        print()
+        print()
+        print()
+
+    if (inp == 5):
+        print(f"Sorted array is {shell_sort(arr)}.")
         print()
         print()
         print()
