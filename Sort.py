@@ -1,3 +1,5 @@
+# functions for sorting algothrithms
+
 import random
 
 def is_sorted(arr):
@@ -6,6 +8,19 @@ def is_sorted(arr):
     for i in range(0, arr_len - 1):
         if (arr[i] > arr[i + 1]):
             return False
+
+def pi(arr, low, high):
+        i = low - 1
+        pivot = arr[high]
+
+        for j in range(low, high):
+            if(arr[j] <= pivot):
+                i += 1
+                arr[j], arr[i] = arr[i], arr[j]
+
+        arr[i + 1], arr[high] = arr[high], arr[i + 1]
+
+        return i + 1
 
 # Different sorting algs
 
@@ -74,6 +89,13 @@ def shell_sort(arr):
     print(arr)
     return arr
 
+def quick_sort(arr, low, high):
+    if(low < high):
+        pi_var = pi(arr, 0, high)
+        quick_sort(arr, low, pi_var - 1)
+        quick_sort(arr, pi_var + 1, high)
+    print(arr)
+    return arr
 
 
 def printer():
@@ -93,6 +115,7 @@ def printer():
     print("Press 3 for insert sort,")
     print("Press 4 for selection sort,")
     print("Press 5 for shell sort,")
+    print("Press 6 for quick sort,")
 
     print()
 
@@ -124,6 +147,12 @@ def printer():
 
     if (inp == 5):
         print(f"Sorted array is {shell_sort(arr)}.")
+        print()
+        print()
+        print()
+    
+    if (inp == 6):
+        print(f"Sorted array is {quick_sort(arr, 0, len(arr) - 1)}.")
         print()
         print()
         print()
