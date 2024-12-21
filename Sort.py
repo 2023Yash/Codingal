@@ -97,6 +97,43 @@ def quick_sort(arr, low, high):
     print(arr)
     return arr
 
+def merge_sort(arr):
+    arr_len = len(arr)
+    
+    if(arr_len > 1):
+        mid = arr_len // 2
+        left = arr[:mid]
+        right = arr[mid:]
+
+        merge_sort(left)
+        merge_sort(right)
+
+        i = 0
+        j = 0
+        indenter = 0
+
+        while(i < len(left) and j < len(right)):
+            if(left[i] <= right[j]):
+                arr[indenter] = left[i]
+                i += 1
+            else:    
+                arr[indenter] = right[j]
+                j += 1
+
+            indenter += 1
+
+        while(i < len(left)):
+            arr[indenter] = left[i]
+            indenter += 1
+            i += 1
+
+        while(j < len(right)):
+            arr[indenter] = right[j]
+            indenter += 1
+            j += 1
+
+    print(arr)
+    return arr
 
 def printer():
     arr = list()
@@ -116,6 +153,7 @@ def printer():
     print("Press 4 for selection sort,")
     print("Press 5 for shell sort,")
     print("Press 6 for quick sort,")
+    print("Press 7 for merge sort,")
 
     print()
 
@@ -153,6 +191,12 @@ def printer():
     
     if (inp == 6):
         print(f"Sorted array is {quick_sort(arr, 0, len(arr) - 1)}.")
+        print()
+        print()
+        print()
+
+    if (inp == 7):
+        print(f"Sorted array is {merge_sort(arr)}.")
         print()
         print()
         print()
