@@ -25,6 +25,26 @@ class slingly():
         
         temp.next = node
 
+    def remove_first_node(self):
+        if self.head is None:
+            return
+
+        self.head = self.head.next
+
+    def remove_last_node(self):
+        if self.head is None:
+            return
+
+        if self.head.next is None:
+            self.head = None
+            return
+
+        current_node = self.head
+        while current_node.next and current_node.next.next:
+            current_node = current_node.next
+
+        current_node.next = None
+
     def display(self):
         if self.head == None:
             print("List is empty")
