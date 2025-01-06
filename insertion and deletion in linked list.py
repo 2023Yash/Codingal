@@ -25,6 +25,23 @@ class linked_list():
         temp.next = node_var
         node_var.prev = temp
 
+    def deletion(self):
+        if (self.head != None):
+            temp = self.head
+            self.head = self.head.next
+            self.head.prev = None
+            temp = None
+
+    def deletion_at_end(self):
+        if(self.head != None):
+            if(self.head.next == None):
+                self.head = None
+            else:
+                temp = self.head
+                while(temp.next.next):
+                    temp = temp.next
+                temp.next = None
+            
     def display(self):
         print()
         if self.head == None:
@@ -53,5 +70,11 @@ linked_list.display()
 linked_list.insertion(0)
 
 linked_list.insertion_at_last(100)
+
+linked_list.display()
+
+linked_list.deletion()
+
+linked_list.deletion_at_end()
 
 linked_list.display()
