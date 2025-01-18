@@ -27,3 +27,15 @@ def sum_of_columns():
         print(answer)
 
 sum_of_columns()
+
+# class Q 1
+
+num = [1, 5, 6]
+string = ["mango", "banana", "apple"]
+
+dictionary = dict()
+
+for i in range(len(num)):
+    dictionary[num[i]] = string[i]
+
+print(dictionary)
