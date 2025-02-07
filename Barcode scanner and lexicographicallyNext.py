@@ -16,3 +16,21 @@ def price(barcode):
     return sum(li)
 
 print(price("ea"))
+
+def lexicographicallyNext(string):
+    if string == "":
+        return "u"
+    
+    i = len(string) - 1
+
+    while string[i] == "z" and i >= 0:
+        i -= 1
+
+    if(i == -1):
+        string = string + "u"
+    else:
+        string = string.replace(string[i], chr(ord(string[i]) + 1), 1)
+    
+    return string
+
+print(lexicographicallyNext("codingalz"))
