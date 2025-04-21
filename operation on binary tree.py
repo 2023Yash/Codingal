@@ -28,7 +28,15 @@ class Node:
         if(self.right):
             self.right.display()
 
-    def search()
+    def search(self, key):
+        if self.data == key:
+            return True
+        elif key < self.data and self.left:
+            return self.left.search(key)
+        elif key > self.data and self.right:
+            return self.right.search(key)
+        return False
+
 
 def delete(root):
     if(root):
