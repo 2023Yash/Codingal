@@ -11,11 +11,12 @@ class SegmentTree:
         def build(l, r):
             node = Node(l, r)
             if l == r:
-                node.sum = nums[1]
+                node.sum = nums[l]
             else:
                 mid = (l + r) // 2
                 node.left = build(l, mid)
                 node.right = build(mid + 1, r)
+                node.sum = node.right.sum + node.left.sum 
             return node
         self.root = build(0, len(nums) - 1)
 
@@ -37,7 +38,7 @@ class SegmentTree:
                 up(node.left)
             else:
                 up(node.right)    
-            node.sum = node.left.sum = node.right.sum
+            node.sum = node.left.sum + node.right.sum
         up(self.root)
 
 arr = [1, 3, 5, 7, 9, 11]
