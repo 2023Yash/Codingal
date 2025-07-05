@@ -22,5 +22,5 @@ def min_swaps(arr):
     return swaps
 
 
-arr = [5, 4, 3, 2, 1]
+arr = [4, 3, 2, 1]
 print("Minimum swaps required:", min_swaps(arr))
