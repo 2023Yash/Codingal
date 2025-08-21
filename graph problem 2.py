@@ -5,6 +5,7 @@ def is_sum_string_util(s, start, n1, n2):
     l = len(total)
     if start + l > len(s) or s[start:start+l] != total:
         return False
+    return is_sum_string_util(s, start + l, n2, int(total))
 
 def is_sum_string(s):
     n = len(s)
