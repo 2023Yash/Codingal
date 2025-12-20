@@ -8,7 +8,6 @@ def factorial(n):
 print(factorial(5))
 
 # dynamic
-
 def dyn_factorial(n):
     dp = [0] * (n + 1)
     dp[0] = 1
