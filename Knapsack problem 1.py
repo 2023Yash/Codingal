@@ -23,3 +23,14 @@ c = 10
 max_value, item_knapsack = knapsack(w, v, c)
 print(max_value)
 print(item_knapsack)
+
+# Subset
+
+def subset_sum(s_e, t_s):
+    n = len(s_e)
+    dp = [[False for _ in range(t_s + 1)] for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        dp[i][0] = True
+    
+    for i in range(1, n + 1):
+        for j in range(1, t_ +s):
