@@ -9,5 +9,6 @@ class Maths:
 class Other_Maths_Functions(Maths):
     pass
 
+x = Maths(n1, n2)
 n = Other_Maths_Functions(2, 4)
 n.multiplication(4)
